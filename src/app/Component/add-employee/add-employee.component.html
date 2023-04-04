@@ -1,0 +1,61 @@
+<div>
+    <div class="submit-form">
+      <div>
+        <div class="form-group">
+          <label for="title">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            required
+            [(ngModel)]="employee.firstName"
+            name="firstName"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Last Name</label>
+          <input
+            class="form-control"
+            id="lastName"
+            required
+            [(ngModel)]="employee.lastName"
+            name="lastName"/>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              id="phone"
+              required
+              [(ngModel)]="employee.email"
+              name="Email"/>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Phone</label>
+            <input
+              class="form-control"
+              id="phone"
+              required
+              [(ngModel)]="employee.phone"
+              name="phone"/>
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="description">Phone</label>
+            <input
+              class="form-control"
+              id="phone"
+              required
+              [(ngModel)]="employee.phone"
+              name="phone"/>
+        </div> -->
+  
+        <button (click)="addEmployee(employee)" class="btn btn-success">Add</button>
+      </div>
+  
+      
+    </div>
+  </div>

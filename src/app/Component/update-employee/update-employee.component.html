@@ -1,0 +1,91 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentEmp._id">
+    <h4>Employee</h4>
+    <div>
+      <label><strong>First Name:</strong></label> {{ currentEmp.firstName }}
+    </div>
+    <div>
+      <label><strong>Last Name:</strong></label>
+      {{ currentEmp.lastName }}
+    </div>
+    <div>
+      <label><strong>Phone:</strong></label>
+      {{ currentEmp.phone}}
+    </div>
+    <div>
+      <label><strong>Email:</strong></label>
+      {{ currentEmp.email}}
+    </div>
+    
+
+
+    <a class="badge badge-warning" routerLink="/employees/{{ currentEmp._id }}"> Edit </a>
+  </div>
+
+  <div *ngIf="!currentEmp">
+    <br/>
+    <p>Please click on a Employee...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentEmp._id" class="edit-form">
+    <h4>Employee</h4>
+    <form>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          [(ngModel)]="currentEmp.firstName"
+          name="firstName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          [(ngModel)]="currentEmp.lastName"
+          name="lastName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          [(ngModel)]="currentEmp.phone"
+          name="phone"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Email:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentEmp.email"
+          name="email"
+        />
+      </div>
+
+      
+    </form>
+
+    
+
+    <button class="badge badge-danger mr-2" (click)="deleteEmployee(currentEmp._id)"> Delete     </button>
+
+    <button type="submit" class="badge badge-success mb-2" (click)="updateEmployee()" > Update  </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentEmp.id">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</ng-template>
